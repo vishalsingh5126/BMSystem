@@ -1,0 +1,103 @@
+﻿@model BankingApplicationSystem.Models.USER_DETAILS
+
+@{
+    ViewBag.Title = "Add User";
+}
+@{
+    Int64 data = Convert.ToInt64(ViewBag.ACC_NUM);
+}
+@{
+    List<SelectListItem> AccountTypeList = new List<SelectListItem>();
+    AccountTypeList.Add(new SelectListItem
+    {
+        Text = "Saving",
+        Value = "Saving"
+    });
+    AccountTypeList.Add(new SelectListItem
+    {
+        Text = "Salary",
+        Value = "Salary",
+        Selected = true
+    });
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<div><h2>Add User</h2></div>
+@using (Html.BeginForm("AddUser", "User", FormMethod.Post)) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>User Details</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.ACCOUNT_NUMBER, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.ACCOUNT_NUMBER, new { htmlAttributes = new { @class = "form-control" }, @Value = data, maxlength = 16, @type = "number", @readonly = "readonly" })
+                @Html.ValidationMessageFor(model => model.ACCOUNT_NUMBER, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ACCOUNT_TYPE, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.ACCOUNT_TYPE, AccountTypeList)
+                @Html.ValidationMessageFor(model => model.ACCOUNT_TYPE, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ACCOUNT_HOLDER_NAME, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.ACCOUNT_HOLDER_NAME, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ACCOUNT_HOLDER_NAME, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ACCOUNT_BALANCE, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.ACCOUNT_BALANCE, new { htmlAttributes = new { @class = "form-control" } , @type = "number" })
+                @Html.ValidationMessageFor(model => model.ACCOUNT_BALANCE, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" id="btnsubmit" value="Add User" class="btn btn-default btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    $(document).ready(function () {
+        
+        $("#ACCOUNT_BALANCE").change(function () {
+            var acc_bal = $('#ACCOUNT_BALANCE').val();
+            var acc_type = $('#ACCOUNT_TYPE').val();
+            if (acc_type == "Saving" && acc_bal < 5000) {
+                alert("You should not have money in saving account less then 5000");
+                $('#ACCOUNT_BALANCE').val('');
+            }
+        });
+        $("#ACCOUNT_TYPE").change(function () {
+            var acc_bal = $('#ACCOUNT_BALANCE').val();
+            var acc_type = $('#ACCOUNT_TYPE').val();
+            if (acc_type == "Saving" && acc_bal < 5000 && acc_bal != 0) {
+                alert("You should not have money in saving account less then 5000");
+                $('#ACCOUNT_BALANCE').val('');
+            }
+        });
+        $('#ACCOUNT_NUMBER').prop('readOnly', true);
+    });
+</script>
+
+

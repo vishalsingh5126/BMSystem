@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+<br /><br /><br /><br /><br /><br /><br />
+@Html.Raw(TempData["msg"])
+<div class="jumbotron">
+    <h1>Bank Management System</h1>
+    <p class="lead">Bank Management System (BMS) website is used for managing the activities of bank like Performing Transactions, View transaction details, apply for Education loan, View Education loan details.</p>
+</div>
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <script type="text/javascript">
+        alert("@ViewBag.Message");
+    </script>
+}

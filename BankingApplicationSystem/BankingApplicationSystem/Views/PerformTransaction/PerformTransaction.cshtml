@@ -1,0 +1,160 @@
+﻿@model BankingApplicationSystem.Models.TRANSACTION_DETAILS
+
+@{
+    ViewBag.Title = "PerformTransaction";
+}
+@{
+    string message = "";
+    Int64 data = Convert.ToInt64(ViewBag.TRA_ID);
+    if (ViewBag.success != null)
+    {
+        message = ViewBag.success.ToString();
+    }
+}
+@{
+    List<SelectListItem> TransactionTypeList = new List<SelectListItem>();
+    TransactionTypeList.Add(new SelectListItem
+    {
+        Text = "Deposit",
+        Value = "Deposit"
+    });
+    TransactionTypeList.Add(new SelectListItem
+    {
+        Text = "Withdrawal",
+        Value = "Withdrawal",
+        Selected = true
+    });
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<h2>Perform Transaction</h2>
+
+
+@using (Html.BeginForm("initiateTransaction", "PerformTransaction", FormMethod.Post)) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Transaction Details</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.TRANSACTION_ID,  htmlAttributes : new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.TRANSACTION_ID, new { htmlAttributes = new { @class = "form-control" }, @Value = data, maxlength = 10, @type = "number", @readonly = "readonly" })
+                @Html.ValidationMessageFor(model => model.TRANSACTION_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.account_number, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.account_number, new { htmlAttributes = new { @class = "form-control" }, maxlength = 16, @type = "number" })
+                @Html.ValidationMessageFor(model => model.account_number, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.TRANSACTION_TYPE, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.TRANSACTION_TYPE, TransactionTypeList)
+                @Html.ValidationMessageFor(model => model.TRANSACTION_TYPE, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.TRANSACTION_DESCRIPTION, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.TRANSACTION_DESCRIPTION, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TRANSACTION_DESCRIPTION, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ACCOUNT_BALANCE, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.ACCOUNT_BALANCE, new { htmlAttributes = new { @class = "form-control" }, @type = "number" })
+                @Html.ValidationMessageFor(model => model.ACCOUNT_BALANCE, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" id="save" value="Perform Transaction" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+    <div id="dialog" style="display: none">
+    </div>
+}
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/jquery-ui.js" type="text/javascript"></script>
+<link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/themes/blitzer/jquery-ui.css"rel="stylesheet" type="text/css"/>
+<script>
+    $(document).ready(function () {
+
+
+        $("#account_number").change(function () {
+            var acc_num = $('#account_number').val();
+            $.ajax({
+                url: '/PerformTransaction/CheckAccNumber',
+                            type: 'POST',
+                            dataType: 'json',
+                            data: { acc_num: acc_num },
+                            success: function (data) {
+                                
+                            },
+                            error: function () {
+                                $('#account_number').val('');
+                                alert("Acount Number does not Exist, please enter 16 digit account number.");
+                            }
+                        });
+        });
+        //$("#dialog").dialog({
+        //    autoOpen: false,
+        //    modal: true,
+        //    title: "View Details"
+        //});
+
+        //$("#save").click(function () {
+        //    var acc_num = $('#account_number').val();
+        //    var acc_bal = $('#ACCOUNT_BALANCE').val();
+        //    var tra_id = $('#TRANSACTION_ID').val();
+        //    var tra_type = $('#TRANSACTION_TYPE').val();
+        //    var cus_name = "";
+        //    var tra_description = $('#TRANSACTION_DESCRIPTION').val();
+        //    if (acc_bal != "" && acc_num != "") {
+        //        $.ajax({
+        //            url: '/PerformTransaction/initiateTransaction ',
+        //            type: 'POST',
+        //            contentType: "application/json; charset=utf-8",
+        //            dataType: "html",
+        //            data: { acc_num: acc_num, acc_bal: acc_bal, tra_id: tra_id, tra_type: tra_type, tra_description: tra_description, cus_name: cus_name },
+        //            success: function (data) {
+        //                alert(data.Message);
+        //                //alert("Your Transaction Details successfully added.");
+        //                //$('#dialog').html(data);
+        //                //$('#dialog').dialog('open');
+        //                window.location = "/home/BankManagementSystem";
+                       
+        //            },
+        //            error: function () {
+        //                $('#account_number').val('');
+        //                alert("Insufficient Fund in your account.");
+        //                window.location = "/home/BankManagementSystem";
+        //            }
+        //        });
+        //    }
+        //    else
+        //        if(acc_num == "")
+        //            alert("Account Number can not be empty.")
+        //        else
+        //            alert("Transaction Amount can not be empty.")
+        //});
+        $('#TRANSACTION_ID').prop('readOnly', true);
+    });
+</script>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
