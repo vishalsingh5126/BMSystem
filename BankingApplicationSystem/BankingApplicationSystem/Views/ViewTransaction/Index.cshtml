@@ -1,0 +1,88 @@
+﻿@model BankingApplicationSystem.Models.ViewTransaction.View_Transaction
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>View Transaction Details</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div id="mymodalbodydiv">
+        <div class="form-horizontal">
+            <h4>View Transaction Details</h4>
+            <hr />
+             @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
+            <div class="form-group">
+                @Html.LabelFor(model => model.TRANSACTION_ID, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TRANSACTION_ID, new { htmlAttributes = new { @class = "form-control" }, maxlength = 10, @type = "number" })
+                    @*@Html.ValidationMessageFor(model => model.TRANSACTION_ID, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+            <div>
+                <p style="padding-left: 27%">OR</p>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.account_number, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.account_number, new { htmlAttributes = new { @class = "form-control" }, maxlength = 16, @type = "number"  })
+                    @*@Html.ValidationMessageFor(model => model.account_number, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="button" id="save" value="View" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<script>
+    $(document).ready(function () {
+        $("#save").click(function () {
+            var acc_num = $('#account_number').val();
+            var tra_id = $('#TRANSACTION_ID').val();
+            var success = 0;
+            if (acc_num == "")
+                acc_num = 0;
+            if (tra_id == "")
+                tra_id = 0;
+            if (acc_num == 0 && tra_id == 0)
+                alert("Please enter Transaction id or account number");
+            else if (acc_num != 0 && tra_id != 0)
+                alert("Please enter Transaction id or account number. You have entered both");
+            else {
+                if (acc_num == 0) {
+                    if (tra_id <= 999999999 || tra_id > 9999999999)
+                        alert("Please enter a 10 digit transaction id.");
+                    else
+                        success = 1;
+                }
+                if (tra_id == 0) {
+                    if (acc_num <= 999999999999999 || acc_num > 9999999999999999)
+                        alert("Please enter a 16 digit account number.");
+                    else
+                        success = 1;
+                }
+            }
+            if (success == 1) {
+                $.ajax({
+                    type: "post",
+                    url: "/ViewTransaction/searchUserTransaction",
+                    data: { account_number: acc_num, TRANSACTION_ID: tra_id },
+                    success: function (response) {
+                        $("#mymodalbodydiv").html(response);
+                    }
+                })
+            }
+        });
+
+
+           });
+</script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

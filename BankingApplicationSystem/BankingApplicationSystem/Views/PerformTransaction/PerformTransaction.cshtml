@@ -95,61 +95,24 @@
 
         $("#account_number").change(function () {
             var acc_num = $('#account_number').val();
-            $.ajax({
-                url: '/PerformTransaction/CheckAccNumber',
-                            type: 'POST',
-                            dataType: 'json',
-                            data: { acc_num: acc_num },
-                            success: function (data) {
-                                
-                            },
-                            error: function () {
-                                $('#account_number').val('');
-                                alert("Acount Number does not Exist, please enter 16 digit account number.");
-                            }
-                        });
-        });
-        //$("#dialog").dialog({
-        //    autoOpen: false,
-        //    modal: true,
-        //    title: "View Details"
-        //});
+            if (acc_num <= 999999999999999 || acc_num > 9999999999999999)
+                alert("Please enter a 16 digit account number.");
+            else {
+                $.ajax({
+                    url: '/PerformTransaction/CheckAccNumber',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: { acc_num: acc_num },
+                    success: function (data) {
 
-        //$("#save").click(function () {
-        //    var acc_num = $('#account_number').val();
-        //    var acc_bal = $('#ACCOUNT_BALANCE').val();
-        //    var tra_id = $('#TRANSACTION_ID').val();
-        //    var tra_type = $('#TRANSACTION_TYPE').val();
-        //    var cus_name = "";
-        //    var tra_description = $('#TRANSACTION_DESCRIPTION').val();
-        //    if (acc_bal != "" && acc_num != "") {
-        //        $.ajax({
-        //            url: '/PerformTransaction/initiateTransaction ',
-        //            type: 'POST',
-        //            contentType: "application/json; charset=utf-8",
-        //            dataType: "html",
-        //            data: { acc_num: acc_num, acc_bal: acc_bal, tra_id: tra_id, tra_type: tra_type, tra_description: tra_description, cus_name: cus_name },
-        //            success: function (data) {
-        //                alert(data.Message);
-        //                //alert("Your Transaction Details successfully added.");
-        //                //$('#dialog').html(data);
-        //                //$('#dialog').dialog('open');
-        //                window.location = "/home/BankManagementSystem";
-                       
-        //            },
-        //            error: function () {
-        //                $('#account_number').val('');
-        //                alert("Insufficient Fund in your account.");
-        //                window.location = "/home/BankManagementSystem";
-        //            }
-        //        });
-        //    }
-        //    else
-        //        if(acc_num == "")
-        //            alert("Account Number can not be empty.")
-        //        else
-        //            alert("Transaction Amount can not be empty.")
-        //});
+                    },
+                    error: function () {
+                        $('#account_number').val('');
+                        alert("Acount Number does not Exist, please enter 16 digit account number.");
+                    }
+                });
+            }
+        });
         $('#TRANSACTION_ID').prop('readOnly', true);
     });
 </script>
