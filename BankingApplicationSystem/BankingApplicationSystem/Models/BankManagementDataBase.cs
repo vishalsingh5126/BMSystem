@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BankingApplicationSystem.Models.EducationLoan;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -12,5 +13,6 @@ namespace BankingApplicationSystem.Models
         { }
         public DbSet<USER_DETAILS> USER_DETAILS { get; set; }
         public DbSet<TRANSACTION_DETAILS> TRANSACTION_DETAILS { get; set; }
+        public DbSet<Edu_Loan_Details> Edu_Loan_Details { get; set; }
     }
 }

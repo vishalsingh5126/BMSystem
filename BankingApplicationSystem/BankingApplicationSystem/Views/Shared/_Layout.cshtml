@@ -6,6 +6,7 @@
     <title>@ViewBag.Title - Bank Management System</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
@@ -33,7 +34,7 @@
                     <li>@Html.ActionLink("View Transaction details", "Index", "ViewTransaction")</li>
                     <li>@Html.ActionLink("Apply Home Loan", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Get Home Loan Details", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Apply Educational Loan", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Apply Educational Loan", "Index", "ApplyEducationLoan")</li>
                     <li>@Html.ActionLink("Get Educational Loan Details", "Contact", "Home")</li>
                     @*<li>@Html.ActionLink("Register User", "Index", "User")</li>*@
                 </ul>
