@@ -1,0 +1,82 @@
+﻿@model BankingApplicationSystem.Models.ViewEducationalLoan.ViewTransactionDetails
+
+@{
+    ViewBag.Title = "View Loan Details";
+}
+
+<h2>View Loan Details</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div id="mydiv">
+        <div class="form-horizontal">
+            <hr />
+            @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
+            <div class="form-group">
+                @Html.LabelFor(model => model.ID_CARD_NUMBER, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ID_CARD_NUMBER, new { htmlAttributes = new { @class = "form-control" } })
+                    @*@Html.ValidationMessageFor(model => model.ID_CARD_NUMBER, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+            <p style="padding-left: 27%">OR</p>
+            <div class="form-group">
+                @Html.LabelFor(model => model.EDU_LOAN_ACCOUNT_NUMBER, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.EDU_LOAN_ACCOUNT_NUMBER, new { htmlAttributes = new { @class = "form-control" } })
+                    @*@Html.ValidationMessageFor(model => model.EDU_LOAN_ACCOUNT_NUMBER, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="button" value="Save" id="save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    $(document).ready(function () {
+        $("#save").click(function () {
+            var id_num = $('#ID_CARD_NUMBER').val();
+            var acc_num = $('#EDU_LOAN_ACCOUNT_NUMBER').val();
+            var success = 0;
+            if (id_num == "")
+                id_num = 0;
+            if (acc_num == "")
+                acc_num = 0;
+            if (acc_num == 0 && id_num == 0)
+                alert("Please enter id number or account number");
+            else if (acc_num != 0 && id_num != 0)
+                alert("Please enter id number or account number. You have entered both");
+            else {
+                if (id_num == "0") {
+                    if (acc_num <= 999999999999999 || acc_num > 9999999999999999)
+                        alert("Please enter a 16 digit account number.");
+                    else
+                        success = 1;
+                }
+                else
+                    success = 1;
+            }
+            if (success == 1) {
+                $.ajax({
+                    type: "post",
+                    url: "/ViewEducationLoan/searchEducationLoanDetails",
+                    data: { AccountNumber: acc_num, identificationCardNumber: id_num },
+                    success: function (response) {
+                        $("#mydiv").html(response);
+                    }
+                })
+            }
+        });
+    });
+    </script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

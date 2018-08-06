@@ -173,9 +173,11 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PerformTransactionController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\ViewEducationLoanController.cs" />
     <Compile Include="Controllers\ViewTransactionController.cs" />
     <Compile Include="EntityFrameworkLayer\ApplyEducationLoan.cs" />
     <Compile Include="EntityFrameworkLayer\PerformTransaction.cs" />
+    <Compile Include="EntityFrameworkLayer\ViewEducationLoan.cs" />
     <Compile Include="EntityFrameworkLayer\ViewTransaction.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -192,10 +194,12 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PerformTransactions\TRANSACTION_DETAILS.cs" />
     <Compile Include="Models\PerformTransactions\USER_DETAILS.cs" />
+    <Compile Include="Models\ViewEducationalLoan\ViewTransactionDetails.cs" />
     <Compile Include="Models\ViewTransaction\View_Transaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ApplyEducationLoanService.cs" />
     <Compile Include="Services\PerformTransactionService.cs" />
+    <Compile Include="Services\ViewEducationLoanService.cs" />
     <Compile Include="Services\ViewTransactionService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -259,6 +263,8 @@
     <Content Include="Views\ViewTransaction\Index.cshtml" />
     <Content Include="Views\ViewTransaction\View.cshtml" />
     <Content Include="Views\ApplyEducationLoan\Index.cshtml" />
+    <Content Include="Views\ViewEducationLoan\Index.cshtml" />
+    <Content Include="Views\ViewEducationLoan\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
