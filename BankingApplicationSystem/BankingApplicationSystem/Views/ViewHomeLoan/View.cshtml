@@ -1,0 +1,87 @@
+﻿@model IEnumerable<BankingApplicationSystem.Models.Home_Loan.Apply_Home_Loan>
+@{ 
+    if (Model.Count() != 0)
+    {
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Loan_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Home_Loan_Acc_Number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Account_Number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Loan_Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Loan_Apply_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Loan_Duration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Annual_Income)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Company_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Designation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total_Experience)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Exp_Current_Company)
+        </th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Loan_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Home_Loan_Acc_Number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Account_Number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Loan_Amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Loan_Apply_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Loan_Duration)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Annual_Income)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Company_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Designation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Total_Experience)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Exp_Current_Company)
+        </td>
+    </tr>
+}
+
+</table>
+    }
+    else
+    {
+        <p> No records found.</p>
+    }
+}

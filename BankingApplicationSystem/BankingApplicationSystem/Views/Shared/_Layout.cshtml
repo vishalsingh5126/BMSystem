@@ -7,6 +7,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
+    <script src="~/Scripts/jquery.ui.datepicker.js"></script>
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
@@ -32,8 +33,8 @@
                     <li>@Html.ActionLink("Home", "BankManagementSystem", "Home")</li>
                     <li>@Html.ActionLink("Perform Transaction", "Index", "PerformTransaction")</li>
                     <li>@Html.ActionLink("View Transaction details", "Index", "ViewTransaction")</li>
-                    <li>@Html.ActionLink("Apply Home Loan", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Get Home Loan Details", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Apply Home Loan", "Index", "ApplyHomeLoan")</li>
+                    <li>@Html.ActionLink("Get Home Loan Details", "Index", "ViewHomeLoan")</li>
                     <li>@Html.ActionLink("Apply Educational Loan", "Index", "ApplyEducationLoan")</li>
                     <li>@Html.ActionLink("Get Educational Loan Details", "Index", "ViewEducationLoan")</li>
                     @*<li>@Html.ActionLink("Register User", "Index", "User")</li>*@

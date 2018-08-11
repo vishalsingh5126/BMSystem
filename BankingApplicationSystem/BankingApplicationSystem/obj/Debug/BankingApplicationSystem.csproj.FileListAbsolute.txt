@@ -133,8 +133,9 @@ D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\bin\
 D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\bin\Microsoft.Owin.Security.Google.xml
 D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\bin\Microsoft.Owin.Security.Twitter.xml
 D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\obj\Debug\BankingApplicationSystem.csprojResolveAssemblyReference.cache
 D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\obj\Debug\BankingApplicationSystem.dll
 D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\obj\Debug\BankingApplicationSystem.pdb
 D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\obj\Debug\BankingApplicationSystem.Migrations.InitialCreate.resources
 D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\obj\Debug\BankingApplicationSystem.csproj.GenerateResource.Cache
+D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\bin\BankingApplicationSystem.dll.CodeAnalysisLog.xml
+D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\bin\BankingApplicationSystem.dll.lastcodeanalysissucceeded

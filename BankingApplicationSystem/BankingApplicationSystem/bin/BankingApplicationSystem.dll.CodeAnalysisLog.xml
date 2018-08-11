@@ -1,0 +1,556 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio 14.0\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="14.0">
+ <Namespaces>
+  <Namespace Name="BankingApplicationSystem.Models.Home_Loan">
+   <Messages>
+    <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+     <Issue Name="Namespace" Certainty="95" Level="Error">Remove the underscores from namespace name 'BankingApplicationSystem.Models.Home_Loan'.</Issue>
+    </Message>
+   </Messages>
+  </Namespace>
+ </Namespaces>
+ <Targets>
+  <Target Name="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\bin\BankingApplicationSystem.dll">
+   <Modules>
+    <Module Name="bankingapplicationsystem.dll">
+     <Namespaces>
+      <Namespace Name="BankingApplicationSystem.Controllers">
+       <Types>
+        <Type Name="AccountController+&lt;ExternalLoginConfirmation&gt;d__27" Kind="Class" Accessibility="Private" ExternallyVisible="False">
+         <Members>
+          <Member Name="#MoveNext()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidExcessiveClassCoupling" Category="Microsoft.Maintainability" CheckId="CA1506" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Method" Certainty="75" Level="Warning" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Controllers" File="AccountController.cs" Line="356">'AccountController.&lt;ExternalLoginConfirmation&gt;d__27.MoveNext()' is coupled with 31 different types from 13 different namespaces. Rewrite or refactor the method to decrease its class coupling, or consider moving the method to one of the other types it is tightly coupled with. A class coupling above 40 indicates poor maintainability, a class coupling between 40 and 30 indicates moderate maintainability, and a class coupling below 30 indicates good maintainability.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="ManageController+&lt;ManageLogins&gt;d__23" Kind="Class" Accessibility="Private" ExternallyVisible="False">
+         <Members>
+          <Member Name="#MoveNext()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidExcessiveClassCoupling" Category="Microsoft.Maintainability" CheckId="CA1506" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Method" Certainty="75" Level="Warning" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Controllers" File="ManageController.cs" Line="280">'ManageController.&lt;ManageLogins&gt;d__23.MoveNext()' is coupled with 36 different types from 14 different namespaces. Rewrite or refactor the method to decrease its class coupling, or consider moving the method to one of the other types it is tightly coupled with. A class coupling above 40 indicates poor maintainability, a class coupling between 40 and 30 indicates moderate maintainability, and a class coupling below 30 indicates good maintainability.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="PerformTransactionController" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#CheckAccNumber(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Controllers" File="PerformTransactionController.cs" Line="37">In member 'PerformTransactionController.CheckAccNumber(string)', remove the underscores from parameter name 'acc_num'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="ViewTransactionController" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#searchUserTransaction(System.Int64,System.Int64)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Controllers" File="ViewTransactionController.cs" Line="20">In member 'ViewTransactionController.searchUserTransaction(long, long)', remove the underscores from parameter name 'TRANSACTION_ID'.</Issue>
+             <Issue Name="MemberParameter" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Controllers" File="ViewTransactionController.cs" Line="20">In member 'ViewTransactionController.searchUserTransaction(long, long)', remove the underscores from parameter name 'account_number'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="BankingApplicationSystem.EntityFrameworkLayer">
+       <Types>
+        <Type Name="ViewHomeLoan" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="TypeNamesShouldNotMatchNamespaces" Category="Microsoft.Naming" CheckId="CA1724" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+           <Issue Certainty="95" Level="Error">The type name 'ViewHomeLoan' conflicts in whole or in part with the namespace name 'BankingApplicationSystem.Models.ViewHomeLoan'. Change either name to eliminate the conflict.</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="ViewTransaction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="TypeNamesShouldNotMatchNamespaces" Category="Microsoft.Naming" CheckId="CA1724" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+           <Issue Certainty="95" Level="Error">The type name 'ViewTransaction' conflicts in whole or in part with the namespace name 'BankingApplicationSystem.Models.ViewTransaction'. Change either name to eliminate the conflict.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#retrieveTransactionDetails(System.Int64,System.Int64)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\EntityFrameworkLayer" File="ViewTransaction.cs" Line="14">In member 'ViewTransaction.retrieveTransactionDetails(long, long)', remove the underscores from parameter name 'TRANSACTION_ID'.</Issue>
+             <Issue Name="MemberParameter" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\EntityFrameworkLayer" File="ViewTransaction.cs" Line="14">In member 'ViewTransaction.retrieveTransactionDetails(long, long)', remove the underscores from parameter name 'account_number'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="BankingApplicationSystem.Models">
+       <Types>
+        <Type Name="BankManagementDataBase" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message Id="DataBase" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+           <Issue Name="TypeShouldBeDiscreteTerm" Certainty="80" Level="Error">The compound word 'DataBase' in type name 'BankManagementDataBase' exists as a discrete term. If your usage is intended to be single word, case it as 'Database'.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#Apply_Home_Loan" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models" File="BankManagementDataBase.cs" Line="19">Remove the underscores from member name 'BankManagementDataBase.Apply_Home_Loan'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Edu_Loan_Details" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models" File="BankManagementDataBase.cs" Line="17">Remove the underscores from member name 'BankManagementDataBase.Edu_Loan_Details'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#TRANSACTION_DETAILS" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models" File="BankManagementDataBase.cs" Line="16">Remove the underscores from member name 'BankManagementDataBase.TRANSACTION_DETAILS'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#USER_DETAILS" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models" File="BankManagementDataBase.cs" Line="15">Remove the underscores from member name 'BankManagementDataBase.USER_DETAILS'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="TRANSACTION_DETAILS" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="95" Level="Error">Remove the underscores from type name 'TRANSACTION_DETAILS'.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#ACCOUNT_BALANCE" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models\PerformTransactions" File="TRANSACTION_DETAILS.cs" Line="26">Remove the underscores from member name 'TRANSACTION_DETAILS.ACCOUNT_BALANCE'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#account_number" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models\PerformTransactions" File="TRANSACTION_DETAILS.cs" Line="24">Remove the underscores from member name 'TRANSACTION_DETAILS.account_number'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#TRANSACTION_DESCRIPTION" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models\PerformTransactions" File="TRANSACTION_DETAILS.cs" Line="17">Remove the underscores from member name 'TRANSACTION_DETAILS.TRANSACTION_DESCRIPTION'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#TRANSACTION_ID" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models\PerformTransactions" File="TRANSACTION_DETAILS.cs" Line="15">Remove the underscores from member name 'TRANSACTION_DETAILS.TRANSACTION_ID'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#TRANSACTION_TYPE" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models\PerformTransactions" File="TRANSACTION_DETAILS.cs" Line="19">Remove the underscores from member name 'TRANSACTION_DETAILS.TRANSACTION_TYPE'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="USER_DETAILS" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="95" Level="Error">Remove the underscores from type name 'USER_DETAILS'.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#ACCOUNT_BALANCE" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models\PerformTransactions" File="USER_DETAILS.cs" Line="27">Remove the underscores from member name 'USER_DETAILS.ACCOUNT_BALANCE'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ACCOUNT_HOLDER_NAME" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models\PerformTransactions" File="USER_DETAILS.cs" Line="24">Remove the underscores from member name 'USER_DETAILS.ACCOUNT_HOLDER_NAME'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ACCOUNT_NUMBER" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models\PerformTransactions" File="USER_DETAILS.cs" Line="18">Remove the underscores from member name 'USER_DETAILS.ACCOUNT_NUMBER'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ACCOUNT_TYPE" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models\PerformTransactions" File="USER_DETAILS.cs" Line="21">Remove the underscores from member name 'USER_DETAILS.ACCOUNT_TYPE'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="BankingApplicationSystem.Models.EducationLoan">
+       <Types>
+        <Type Name="Edu_Loan_Details" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="95" Level="Error">Remove the underscores from type name 'Edu_Loan_Details'.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#ACCOUNT_NUMBER" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models\EducationLoan" File="Edu_Loan_Details.cs" Line="15">Remove the underscores from member name 'Edu_Loan_Details.ACCOUNT_NUMBER'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#COURSE_FEE" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models\EducationLoan" File="Edu_Loan_Details.cs" Line="31">Remove the underscores from member name 'Edu_Loan_Details.COURSE_FEE'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#COURSE_NAME" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models\EducationLoan" File="Edu_Loan_Details.cs" Line="28">Remove the underscores from member name 'Edu_Loan_Details.COURSE_NAME'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#EDU_LOAN_ACCOUNT_NUMBER" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models\EducationLoan" File="Edu_Loan_Details.cs" Line="16">Remove the underscores from member name 'Edu_Loan_Details.EDU_LOAN_ACCOUNT_NUMBER'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#EDU_LOAN_AMOUNT" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models\EducationLoan" File="Edu_Loan_Details.cs" Line="19">Remove the underscores from member name 'Edu_Loan_Details.EDU_LOAN_AMOUNT'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#EDU_LOAN_APPLY_DATE" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models\EducationLoan" File="Edu_Loan_Details.cs" Line="22">Remove the underscores from member name 'Edu_Loan_Details.EDU_LOAN_APPLY_DATE'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#EDU_LOAN_DURATION" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models\EducationLoan" File="Edu_Loan_Details.cs" Line="25">Remove the underscores from member name 'Edu_Loan_Details.EDU_LOAN_DURATION'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#EDUCATION_LOAN_ID" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models\EducationLoan" File="Edu_Loan_Details.cs" Line="13">Remove the underscores from member name 'Edu_Loan_Details.EDUCATION_LOAN_ID'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#FATHER_ANNUAL_INCOME" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models\EducationLoan" File="Edu_Loan_Details.cs" Line="40">Remove the underscores from member name 'Edu_Loan_Details.FATHER_ANNUAL_INCOME'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#FATHER_NAME" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models\EducationLoan" File="Edu_Loan_Details.cs" Line="34">Remove the underscores from member name 'Edu_Loan_Details.FATHER_NAME'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ID_CARD_NUMBER" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models\EducationLoan" File="Edu_Loan_Details.cs" Line="37">Remove the underscores from member name 'Edu_Loan_Details.ID_CARD_NUMBER'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="BankingApplicationSystem.Models.Home_Loan">
+       <Types>
+        <Type Name="Apply_Home_Loan" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="95" Level="Error">Remove the underscores from type name 'Apply_Home_Loan'.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#Account_Number" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models\Home Loan" File="Apply_Home_Loan.cs" Line="20">Remove the underscores from member name 'Apply_Home_Loan.Account_Number'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Annual_Income" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models\Home Loan" File="Apply_Home_Loan.cs" Line="31">Remove the underscores from member name 'Apply_Home_Loan.Annual_Income'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Company_Name" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models\Home Loan" File="Apply_Home_Loan.cs" Line="34">Remove the underscores from member name 'Apply_Home_Loan.Company_Name'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Exp_Current_Company" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models\Home Loan" File="Apply_Home_Loan.cs" Line="43">Remove the underscores from member name 'Apply_Home_Loan.Exp_Current_Company'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Home_Loan_Acc_Number" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models\Home Loan" File="Apply_Home_Loan.cs" Line="17">Remove the underscores from member name 'Apply_Home_Loan.Home_Loan_Acc_Number'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Loan_Amount" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models\Home Loan" File="Apply_Home_Loan.cs" Line="23">Remove the underscores from member name 'Apply_Home_Loan.Loan_Amount'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Loan_Apply_Date" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models\Home Loan" File="Apply_Home_Loan.cs" Line="26">Remove the underscores from member name 'Apply_Home_Loan.Loan_Apply_Date'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Loan_Duration" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models\Home Loan" File="Apply_Home_Loan.cs" Line="29">Remove the underscores from member name 'Apply_Home_Loan.Loan_Duration'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Loan_ID" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models\Home Loan" File="Apply_Home_Loan.cs" Line="14">Remove the underscores from member name 'Apply_Home_Loan.Loan_ID'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Total_Experience" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models\Home Loan" File="Apply_Home_Loan.cs" Line="40">Remove the underscores from member name 'Apply_Home_Loan.Total_Experience'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="BankingApplicationSystem.Models.ViewEducationalLoan">
+       <Types>
+        <Type Name="ViewTransactionDetails" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#EDU_LOAN_ACCOUNT_NUMBER" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models\ViewEducationalLoan" File="ViewTransactionDetails.cs" Line="14">Remove the underscores from member name 'ViewTransactionDetails.EDU_LOAN_ACCOUNT_NUMBER'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ID_CARD_NUMBER" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models\ViewEducationalLoan" File="ViewTransactionDetails.cs" Line="12">Remove the underscores from member name 'ViewTransactionDetails.ID_CARD_NUMBER'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="BankingApplicationSystem.Models.ViewHomeLoan">
+       <Types>
+        <Type Name="ViewHomeLoan" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="TypeNamesShouldNotMatchNamespaces" Category="Microsoft.Naming" CheckId="CA1724" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+           <Issue Certainty="95" Level="Error">The type name 'ViewHomeLoan' conflicts in whole or in part with the namespace name 'BankingApplicationSystem.Models.ViewHomeLoan'. Change either name to eliminate the conflict.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#Loan_Account_Number" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models\ViewHomeLoan" File="ViewHomeLoan.cs" Line="14">Remove the underscores from member name 'ViewHomeLoan.Loan_Account_Number'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Loan_ID" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models\ViewHomeLoan" File="ViewHomeLoan.cs" Line="12">Remove the underscores from member name 'ViewHomeLoan.Loan_ID'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="BankingApplicationSystem.Models.ViewTransaction">
+       <Types>
+        <Type Name="View_Transaction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="95" Level="Error">Remove the underscores from type name 'View_Transaction'.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#account_number" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models\ViewTransaction" File="View_Transaction.cs" Line="16">Remove the underscores from member name 'View_Transaction.account_number'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#TRANSACTION_ID" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Models\ViewTransaction" File="View_Transaction.cs" Line="12">Remove the underscores from member name 'View_Transaction.TRANSACTION_ID'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="BankingApplicationSystem.Services">
+       <Types>
+        <Type Name="ViewTransactionService" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#retrieveTransactionDetails(System.Int64,System.Int64)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2018-08-10 16:06:32Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Services" File="ViewTransactionService.cs" Line="14">In member 'ViewTransactionService.retrieveTransactionDetails(long, long)', remove the underscores from parameter name 'TRANSACTION_ID'.</Issue>
+             <Issue Name="MemberParameter" Certainty="95" Level="Error" Path="D:\BMSRepository\BMSystem\BankingApplicationSystem\BankingApplicationSystem\Services" File="ViewTransactionService.cs" Line="14">In member 'ViewTransactionService.retrieveTransactionDetails(long, long)', remove the underscores from parameter name 'account_number'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="AvoidExcessiveClassCoupling" Category="Microsoft.Maintainability" CheckId="CA1506">
+   <Name>Avoid excessive class coupling</Name>
+   <Description>Types and methods with a high degree of class coupling can be difficult to maintain.</Description>
+   <Resolution Name="Method">{0} is coupled with {1} different types from {2} different namespaces. Rewrite or refactor the method to decrease its class coupling, or consider moving the method to one of the other types it is tightly coupled with. A class coupling above {3} indicates poor maintainability, a class coupling between {3} and {4} indicates moderate maintainability, and a class coupling below {4} indicates good maintainability.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/bb397994.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="90">Warning</MessageLevel>
+   <File Name="maintainabilityrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702">
+   <Name>Compound words should be cased correctly</Name>
+   <Description>Avoid creating compound words from terms which exist in the dictionary as discrete terms. Do not create a compound word such as 'StopWatch' or 'PopUp'. These terms are recognized in the dictionary and should be cased as 'Stopwatch' and 'Popup'.</Description>
+   <Resolution Name="TypeShouldBeDiscreteTerm">The compound word '{0}' in type name {1} exists as a discrete term. If your usage is intended to be single word, case it as '{2}'.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/bb264474.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="80">Error</MessageLevel>
+   <File Name="namingrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707">
+   <Name>Identifiers should not contain underscores</Name>
+   <Description>Do not use underscores when specifying identifiers. Some generated Visual Studio identifiers for applications contain underscore characters. Underscore characters should generally be avoided in public identifiers.</Description>
+   <Resolution Name="Member">Remove the underscores from member name {0}.</Resolution>
+   <Resolution Name="MemberParameter">In member {0}, remove the underscores from parameter name {1}.</Resolution>
+   <Resolution Name="Namespace">Remove the underscores from namespace name '{0}'.</Resolution>
+   <Resolution Name="Type">Remove the underscores from type name {0}.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182245.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="namingrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="TypeNamesShouldNotMatchNamespaces" Category="Microsoft.Naming" CheckId="CA1724">
+   <Name>Type names should not match namespaces</Name>
+   <Description>Identifiers which conflict in whole or in part with namespace names should be avoided. Names that describe the purpose or contents of a type are preferred.</Description>
+   <Resolution Name="Default">The type name {0} conflicts in whole or in part with the namespace name '{1}'. Change either name to eliminate the conflict.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182257.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="namingrules.dll" Version="14.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">Category</String>
+  <String Key="Certainty">Certainty</String>
+  <String Key="CollapseAll">Collapse All</String>
+  <String Key="CheckId">Check Id</String>
+  <String Key="Error">Error</String>
+  <String Key="Errors">error(s)</String>
+  <String Key="ExpandAll">Expand All</String>
+  <String Key="Help">Help</String>
+  <String Key="Line">Line</String>
+  <String Key="Messages">message(s)</String>
+  <String Key="LocationNotStoredInPdb">[Location not stored in Pdb]</String>
+  <String Key="Project">Project</String>
+  <String Key="Resolution">Resolution</String>
+  <String Key="Rule">Rule</String>
+  <String Key="RuleFile">Rule File</String>
+  <String Key="RuleDescription">Rule Description</String>
+  <String Key="Source">Source</String>
+  <String Key="Status">Status</String>
+  <String Key="Target">Target</String>
+  <String Key="Warning">Warning</String>
+  <String Key="Warnings">warning(s)</String>
+  <String Key="ReportTitle">Code Analysis Report</String>
+ </Localized>
+</FxCopReport>

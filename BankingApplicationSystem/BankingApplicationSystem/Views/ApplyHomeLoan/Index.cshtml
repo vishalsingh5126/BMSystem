@@ -1,0 +1,237 @@
+﻿@model BankingApplicationSystem.Models.Home_Loan.Apply_Home_Loan
+
+@{
+    ViewBag.Title = "Apply Home Loan";
+}
+@{
+    List<SelectListItem> LoanDurationList = new List<SelectListItem>();
+    LoanDurationList.Add(new SelectListItem
+    {
+        Text = "5",
+        Value = "5",
+        Selected = true
+    });
+    LoanDurationList.Add(new SelectListItem
+    {
+        Text = "10",
+        Value = "10"
+
+    });
+    LoanDurationList.Add(new SelectListItem
+    {
+        Text = "15",
+        Value = "15"
+
+    });
+    LoanDurationList.Add(new SelectListItem
+    {
+        Text = "20",
+        Value = "20"
+
+    });
+}
+
+
+<br /><br /><br />
+<h2>Apply Home Loan</h2>
+
+
+@using (Html.BeginForm("initiateHomeLoan", "ApplyHomeLoan", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Account_Number, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Account_Number, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Account_Number, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Loan_Amount, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Loan_Amount, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Loan_Amount, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Loan_Apply_Date, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.TextBoxFor(model => model.Loan_Apply_Date, new { htmlAttributes = new { @class = "form-control" }, @Value = DateTime.Now.ToShortDateString() })*@
+                @Html.TextBoxFor(model => model.Loan_Apply_Date, new { htmlAttributes = new { @class = "form-control" }, @Value = DateTime.Now.ToShortDateString() })
+                @Html.ValidationMessageFor(model => model.Loan_Apply_Date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Loan_Duration, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.Loan_Duration, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.DropDownListFor(model => model.Loan_Duration, LoanDurationList)
+                @Html.ValidationMessageFor(model => model.Loan_Duration, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Annual_Income, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Annual_Income, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Annual_Income, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Company_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Company_Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Company_Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Designation, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Designation, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Designation, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Total_Experience, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Total_Experience, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Total_Experience, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Exp_Current_Company, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Exp_Current_Company, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Exp_Current_Company, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" id="save" value="Apply" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    $(document).ready(function () {
+        $("#Account_Number").change(function () {
+            var acc_num = $('#Account_Number').val();
+            if (acc_num <= 999999999999999 || acc_num > 9999999999999999) {
+                $('#Account_Number').val('');
+                alert("Please enter a 16 digit account number.");
+            }
+            else {
+                $.ajax({
+                    url: '/PerformTransaction/CheckAccNumber',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: { acc_num: acc_num },
+                    success: function (data) {
+
+                    },
+                    error: function () {
+                        $('#Account_Number').val('');
+                        alert("Acount Number does not Exist, please enter 16 digit account number.");
+                    }
+                });
+            }
+        });
+        $("#Loan_Amount").change(function () {
+            var l_amount = $('#Loan_Amount').val();
+            if (l_amount < 0) {
+                alert("Loan amount can not be negative number.")
+                $('#Loan_Amount').val('');
+            }
+        });
+        $("#Annual_Income").change(function () {
+            var annual_income = $('#Annual_Income').val();
+            if (annual_income < 0) {
+                alert("Annual income can not be negative number.")
+                $('#Annual_Income').val('');
+            }
+        });
+        $(function () {
+            $('#Company_Name').keyup(function () {
+                if (this.value.match(/[^a-zA-Z\s]/g))
+                    this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+            });
+        });
+        $(function () {
+            $('#Designation').keyup(function () {
+                if (this.value.match(/[^a-zA-Z\s]/g))
+                    this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+            });
+        });
+        $("#Total_Experience").change(function () {
+            var annual_income = $('#Total_Experience').val();
+            if (annual_income < 0) {
+                alert("Experience can not be negative number.")
+                $('#Total_Experience').val('');
+            }
+        });
+        $("#Exp_Current_Company").change(function () {
+            var annual_income = $('#Exp_Current_Company').val();
+            if (annual_income < 0) {
+                alert("Experience can not be negative number.")
+                $('#Exp_Current_Company').val('');
+            }
+        });
+        $(function () {
+            $('#Loan_Apply_Date').datepicker()({
+                minDate: 0
+            })
+        });
+        $("#save").click(function () {
+            var xp_current = $('#Exp_Current_Company').val();
+            var xp_total = $('#Total_Experience').val();
+            if (xp_current > xp_total) {
+                alert("Current experience can not be greater than total experience.");
+                return false;
+            }
+            var anu_inc = $('#Annual_Income').val();
+            var loan_amt = $('#Loan_Amount').val();
+            var temp = loan_amt/10;
+            if(loan_amt/10 > anu_inc)
+            {
+                alert("Loan amount should not be greater than 10 times your annual income");
+                return false;
+            }
+            var k = $('#Loan_Apply_Date').val();
+            var date = Date.parse(k);
+            var d = new Date();
+            var nice = (d.getMonth() + 1) + "/" + d.getDate() + "/" + d.getFullYear();
+            var strDate = Date.parse(nice);
+            if (strDate > date) {
+                alert("Please select apply date greater than today's date.")
+                return false;
+            }
+        });
+    });
+</script>
+
+@section Scripts {
+
+    @Scripts.Render("~/bundles/jqueryval")
+        @*<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js" type="text/javascript"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
+        <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="Stylesheet" type="text/css" />*@
+            <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+            <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+            <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+}

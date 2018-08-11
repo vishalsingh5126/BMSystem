@@ -24,7 +24,7 @@ namespace BankingApplicationSystem.EntityFrameworkLayer
                 else
                     return "An error occured while processing you request.";
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return "An error occured while processing you request.";
             }
